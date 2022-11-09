@@ -1,0 +1,13 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: teal;
+  color: #fff;
+}
+
+.score {
+  display: inline-block;
+  width: 50px;
+}
