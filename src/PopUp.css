@@ -1,0 +1,46 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.final-score {
+  background-color: #fff;
+  padding: 1.5rem;
+  max-width: 600px;
+  min-width: 350px;
+  position: relative;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.close-popup {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: red;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  width: 2rem;
+  height: 2rem;
+  top: -15px;
+  right: -15px;
+  cursor: pointer;
+}
