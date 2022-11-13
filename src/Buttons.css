@@ -1,0 +1,28 @@
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start,
+.stop {
+  background-color: purple;
+  padding: 15px 30px;
+  color: #fff;
+  font-size: 18px;
+  font-family: inherit;
+  border: none;
+  margin: 0.5rem;
+  border-radius: 3px;
+  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.start:hover,
+.start:active,
+.stop:hover,
+.stop:active {
+  box-shadow: none;
+  opacity: 0.8;
+}

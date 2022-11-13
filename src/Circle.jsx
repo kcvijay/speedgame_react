@@ -2,7 +2,15 @@ import React from "react";
 import "./Circle.css";
 
 const Circle = (props) => {
-  return <button onClick={props.click}>{props.buttonKey}</button>;
+  return (
+    <button
+      key={props.buttonKey}
+      className="circle"
+      onClick={props.clickHandler}
+    >
+      {props.buttonKey}
+    </button>
+  );
 };
 
 export default Circle;

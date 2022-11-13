@@ -9,7 +9,7 @@ const Footer = () => {
         href="https://github.com/kcvijay/speedgame_react"
         target="_blank noreferer"
       >
-        Look at GitHub
+        Repo at GitHub
       </a>
     </footer>
   );

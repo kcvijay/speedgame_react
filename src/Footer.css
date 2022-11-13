@@ -3,12 +3,19 @@ footer {
   bottom: 0;
   width: 100%;
   text-align: center;
-  background-color: purple;
+  background-color: #44b1fa;
   color: #fff;
   padding: 0.5rem;
   line-height: 1.5;
 }
 
 a {
-  color: #999;
+  color: #f1f1f1;
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  text-decoration: underline;
+  font-style: italic;
 }
