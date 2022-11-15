@@ -1,6 +1,6 @@
 .circle {
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
   border-radius: 50%;
   border: none;
   background: teal;
@@ -10,5 +10,6 @@
 }
 
 button.active {
-  background-color: red;
+  background-color: rgb(51, 145, 199);
+  box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
 }

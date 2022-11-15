@@ -9,6 +9,9 @@ const PopUp = (props) => {
           X
         </p>
         <p>Your Final Score is: {props.score}</p>
+        <button className="reload-btn" onClick={props.reload}>
+          Reload Game?
+        </button>
       </div>
     </div>
   );

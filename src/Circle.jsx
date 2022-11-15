@@ -4,11 +4,10 @@ import "./Circle.css";
 const Circle = (props) => {
   return (
     <button
-      key={props.buttonKey}
-      className="circle"
+      className={`circle ${props.active ? "active" : ""}`}
       onClick={props.clickHandler}
     >
-      {props.buttonKey}
+      {props.id}
     </button>
   );
 };

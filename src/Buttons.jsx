@@ -7,7 +7,9 @@ const Buttons = (props) => {
       <button className="start" onClick={props.startGame}>
         Start Game
       </button>
-      <button className="stop">Stop Game</button>
+      <button className="stop" onClick={props.endGame}>
+        Stop Game
+      </button>
     </div>
   );
 };
