@@ -74,17 +74,33 @@ h3 {
 .reload-btn .tooltip-msg {
   display: none;
   position: absolute;
-  width: 250px;
-  padding: 0.5rem;
+  width: 300px;
+  padding: 0.6rem;
   background-color: #f45d5d;
   color: #ffff;
+  text-align: left;
+  font-size: 14px;
+  border: 2px solid #fff;
   box-shadow: 0 30px 30px rgba(0, 0, 0, 0.3);
+}
+
+.reload-btn .tooltip-msg::before {
+  content: "";
+  position: absolute;
+  left: 25px;
+  bottom: -12px;
+  width: 20px;
+  height: 20px;
+  background: inherit;
+  transform: rotate(45deg);
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
 }
 
 .reload-btn:hover .tooltip-msg {
   right: -100%;
   display: block;
-  top: -200%;
+  top: -95px;
   left: 0;
 }
 

@@ -14,7 +14,8 @@ const PopUp = (props) => {
           <button className="reload-btn" onClick={props.reload}>
             Yes
             <span className="tooltip-msg">
-              Warning! Your scores and lives will be restored.
+              You sure?<br></br>Your scores and lives will be restored on
+              reloading.
             </span>
           </button>
           <button className="cancel-btn" onClick={props.cancel}>
