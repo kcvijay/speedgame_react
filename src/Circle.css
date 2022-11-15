@@ -14,5 +14,6 @@
 }
 
 button.active {
+  position: relative;
   filter: grayscale(0);
 }

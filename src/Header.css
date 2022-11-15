@@ -3,9 +3,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   padding: 1rem;
   background-color: teal;
   color: #fff;
+}
+
+.lives {
+  margin: 0 1rem;
 }
 
 .score-board {

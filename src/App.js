@@ -18,6 +18,7 @@ class App extends Component {
     active: undefined,
     pace: 1000,
     showScore: false,
+    gameActive: true,
   };
 
   timer;
@@ -53,7 +54,7 @@ class App extends Component {
     if (this.state.active !== newActive) {
       this.setState({
         active: newActive,
-        pace: this.state.pace * 0.99,
+        pace: this.state.pace * 0.97,
       });
     } else return this.newActiveHandler();
 
@@ -84,6 +85,13 @@ class App extends Component {
         lives: this.state.lives - 1,
       });
     }
+
+    //As a challenge, if score is equal or more than 15, diamonds increase to 5.
+    if (this.state.score >= 15) {
+      this.setState({
+        circles: [1, 2, 3, 4, 5],
+      });
+    }
   };
 
   popupHandler = () => {
@@ -93,6 +101,7 @@ class App extends Component {
   };
 
   reloadGame = () => {
+    this.popupHandler();
     window.location.reload();
   };
 
@@ -119,11 +128,9 @@ class App extends Component {
         <Footer />
         {this.state.showScore && (
           <PopUp
-            closePopup={this.popupHandler}
+            closePopup={this.reloadGame}
             score={this.state.score}
             key={this.state.circles.key}
-            reload={this.reloadGame}
-            cancel={this.popupHandler}
           />
         )}
       </div>

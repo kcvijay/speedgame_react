@@ -9,19 +9,6 @@ const PopUp = (props) => {
           X
         </p>
         <h3>Your Current Score is {props.score}.</h3>
-        <p>Reload Game?</p>
-        <div className="btns">
-          <button className="reload-btn" onClick={props.reload}>
-            Yes
-            <span className="tooltip-msg">
-              You sure?<br></br>Your scores and lives will be restored on
-              reloading.
-            </span>
-          </button>
-          <button className="cancel-btn" onClick={props.cancel}>
-            No
-          </button>
-        </div>
       </div>
     </div>
   );
