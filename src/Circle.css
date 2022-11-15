@@ -1,15 +1,18 @@
 .circle {
   width: 125px;
   height: 125px;
-  border-radius: 50%;
   border: none;
   background: teal;
   color: #fff;
   cursor: pointer;
   margin: 1rem;
+  background: url("./Assets/diamond.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: grayscale(1);
 }
 
 button.active {
-  background-color: rgb(51, 145, 199);
-  box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+  filter: grayscale(0);
 }

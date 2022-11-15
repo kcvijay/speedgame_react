@@ -45,12 +45,49 @@
   cursor: pointer;
 }
 
-.reload-btn {
-  padding: 0.6rem 1.5rem;
+h3 {
+  margin-bottom: 1rem;
+}
+
+.btns {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.reload-btn,
+.cancel-btn {
+  padding: 0.5rem 1.5rem;
   font-family: inherit;
-  background-color: teal;
   color: #fff;
-  margin-top: 1rem;
+  margin: 0.5rem 0.5rem 0 0;
   border: none;
   cursor: pointer;
+}
+
+.reload-btn {
+  background-color: red;
+  position: relative;
+}
+
+.reload-btn .tooltip-msg {
+  display: none;
+  position: absolute;
+  width: 250px;
+  padding: 0.5rem;
+  background-color: #f45d5d;
+  color: #ffff;
+  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.3);
+}
+
+.reload-btn:hover .tooltip-msg {
+  right: -100%;
+  display: block;
+  top: -200%;
+  left: 0;
+}
+
+.cancel-btn {
+  background-color: teal;
 }

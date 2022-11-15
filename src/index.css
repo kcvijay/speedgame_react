@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quantico&family=Raleway:wght@400;700&display=swap");
 
 * {
   margin: 0;
@@ -8,14 +8,9 @@
 
 body {
   margin: 0;
-  font-family: "K2D", sans-serif;
+  font-family: "Raleway", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(to left, rgb(241, 190, 238), rgb(243, 190, 159));
   background-size: cover;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }

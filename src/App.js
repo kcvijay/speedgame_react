@@ -6,6 +6,10 @@ import Footer from "./Footer";
 import PopUp from "./PopUp";
 import "./App.css";
 
+// import click from /*files*/
+
+// let clickSound = new Audio(click)
+
 class App extends Component {
   state = {
     score: 0,
@@ -69,6 +73,7 @@ class App extends Component {
   };
 
   clickHandler = (i) => {
+    // clickSound.play();
     // if correct button clicking, score adds by 1, else lives reduces by 1. on all lives reduced, score popup opens.
     if (i === this.state.active) {
       this.setState({
@@ -118,6 +123,7 @@ class App extends Component {
             score={this.state.score}
             key={this.state.circles.key}
             reload={this.reloadGame}
+            cancel={this.popupHandler}
           />
         )}
       </div>

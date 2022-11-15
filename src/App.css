@@ -2,7 +2,12 @@
   max-width: 1000px;
   height: 100vh;
   margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.3);
+
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.515), black),
+    url("./Assets/coal-bg.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
 }
 

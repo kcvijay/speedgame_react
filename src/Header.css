@@ -1,4 +1,5 @@
 header {
+  font-family: "Quantico", sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -7,9 +8,13 @@ header {
   color: #fff;
 }
 
+.score-board {
+  margin: 0;
+}
+
 .score {
   display: inline-block;
-  width: 40px;
+  width: 50px;
   text-align: right;
   font-size: 1.3rem;
 }
