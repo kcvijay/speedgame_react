@@ -1,14 +1,14 @@
 import React from "react";
-import "./Circle.css";
+import "./Diamonds.css";
 
-const Circle = (props) => {
+const Diamonds = (props) => {
   return (
     <button
-      className={`circle ${props.active ? "active" : ""}`}
+      className={`diamond ${props.active ? "active" : ""}`}
       onClick={props.clickHandler}
       disabled={props.buttonDisabled}
     ></button>
   );
 };
 
-export default Circle;
+export default Diamonds;

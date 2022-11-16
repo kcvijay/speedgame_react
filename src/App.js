@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "./Header";
-import Circle from "./Circle";
+import Diamonds from "./Diamonds";
 import Footer from "./Footer";
 import PopUp from "./PopUp";
 import click from "./Assets/diamond-click.mp3";
@@ -12,7 +12,7 @@ class App extends Component {
   state = {
     score: 0,
     lives: 3,
-    circles: [1, 2, 3, 4],
+    diamonds: [1, 2, 3, 4],
     active: undefined,
     pace: 1000,
     showScore: false,
@@ -38,7 +38,7 @@ class App extends Component {
 
   // Creating a unique number every moment
   newActiveHandler = () => {
-    let newActive = this.makeRandom(0, this.state.circles.length);
+    let newActive = this.makeRandom(0, this.state.diamonds.length);
     if (this.state.active !== newActive) {
       this.setState({
         active: newActive,
@@ -73,7 +73,7 @@ class App extends Component {
     //As a challenge, if score is equal or more than 15, diamonds increase to 5.
     if (this.state.score >= 15) {
       this.setState({
-        circles: [1, 2, 3, 4, 5],
+        diamonds: [1, 2, 3, 4, 5],
       });
     }
   };
@@ -110,9 +110,9 @@ class App extends Component {
   };
 
   render() {
-    const circles = this.state.circles.map((circle, i) => {
+    const diamonds = this.state.diamonds.map((diamond, i) => {
       return (
-        <Circle
+        <Diamonds
           clickHandler={() => this.clickHandler(i)}
           key={i}
           id={i + 1}
@@ -140,7 +140,7 @@ class App extends Component {
             </button>
           )}
         </div>
-        <div className="circles">{circles}</div>
+        <div className="diamonds">{diamonds}</div>
         <div className="buttons">
           {this.state.gameActive ? (
             <button onClick={this.stopGameHandler} className="btn">
@@ -157,7 +157,7 @@ class App extends Component {
           <PopUp
             closePopup={this.reloadGame}
             score={this.state.score}
-            key={this.state.circles.key}
+            key={this.state.diamonds.key}
             greeting={
               this.state.score === 0
                 ? `Too bad. You collected nothing.`
@@ -173,23 +173,3 @@ class App extends Component {
 }
 
 export default App;
-
-//Margits code
-
-// nextCircle = () => {
-//   let nextActiveNum;
-
-//   do {
-//     nextActiveNum = this.makeRandom();
-//   } while (nextActiveNum === this.state.active);
-
-//   this.setState({
-//     active: nextActiveNum,
-//   });
-
-//   this.timer = setTimeout(this.nextCircle, 1000);
-// };
-
-// startHandler = () => {
-//   this.nextCircle();
-// };
