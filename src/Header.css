@@ -1,4 +1,5 @@
 header {
+  position: relative;
   font-family: "Quantico", sans-serif;
   display: flex;
   justify-content: space-between;
@@ -22,4 +23,23 @@ header {
   width: 50px;
   text-align: right;
   font-size: 1.3rem;
+}
+
+.mute-btns {
+  position: absolute;
+  bottom: -60px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mute-btns button {
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+  border-radius: 50%;
+  margin: 0 0.1rem;
+  cursor: pointer;
 }

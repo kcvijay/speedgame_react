@@ -6,8 +6,6 @@ import PopUp from "./PopUp";
 import click from "./Assets/diamond-click.mp3";
 import "./App.css";
 
-// import click from /*files*/
-
 let clickSound = new Audio(click);
 
 class App extends Component {
@@ -20,9 +18,24 @@ class App extends Component {
     showScore: false,
     gameActive: false,
     buttonDisabled: true,
+    audioMuted: false,
   };
 
   timer;
+
+  audioMuteHandler = () => {
+    this.setState({
+      audioMuted: !this.state.audioMuted,
+    });
+    clickSound.muted = !this.state.audioMuted;
+  };
+
+  audioUnmuteHandler = () => {
+    this.setState({
+      audioMuted: !this.state.audioMuted,
+    });
+    clickSound.muted = !this.state.audioMuted;
+  };
 
   makeRandom = (min, max) => {
     let random = Math.floor(Math.random() * (max - min));
@@ -50,8 +63,8 @@ class App extends Component {
   };
 
   //Actions on clicking correct and incorrect diamonds
+  // if correct button clicking, score adds by 1, else lives reduces by 1. On all lives reduced, score popup opens.
   clickHandler = (i) => {
-    // if correct button clicking, score adds by 1, else lives reduces by 1. on all lives reduced, score popup opens.
     clickSound.play();
     if (i === this.state.active) {
       this.setState({
@@ -71,7 +84,7 @@ class App extends Component {
     }
   };
 
-  // Score shows as popup
+  // Score shows as popup on both game ending plus clicking 'stop game' button
   popupHandler = () => {
     this.setState({
       showScore: !this.state.showScore,
@@ -84,7 +97,7 @@ class App extends Component {
     window.location.reload();
   };
 
-  // Game starts
+  // Game starts..Game active is 'true' and button disabling 'false' on game start.
   startGameHandler = () => {
     this.newActiveHandler();
     this.setState({
@@ -93,7 +106,7 @@ class App extends Component {
     });
   };
 
-  // Game ends
+  // Game ends..Repetitive active diamonds are disabled, score popup opens and game activeness is reversed.
   stopGameHandler = () => {
     clearTimeout(this.timer);
     this.popupHandler();
@@ -117,7 +130,22 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header score={this.state.score} lives={this.state.lives} />
+        <Header
+          score={this.state.score}
+          lives={this.state.lives}
+          audioMute={this.audioSoundHandler}
+        />
+        <div className="mute-unmute">
+          {!this.state.audioMuted ? (
+            <button onClick={this.audioMuteHandler} className="mute">
+              🔇 <span class="tooltip">Mute Audio</span>
+            </button>
+          ) : (
+            <button onClick={this.audioUnmuteHandler} classNAme="unmute">
+              🔈 <span class="tooltip">Unmute Audio</span>
+            </button>
+          )}
+        </div>
         <div className="circles">{circles}</div>
         <div className="buttons">
           {this.state.gameActive ? (
