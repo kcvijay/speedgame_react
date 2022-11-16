@@ -23,14 +23,8 @@ class App extends Component {
 
   timer;
 
+  // Function for mute and unmute audio.
   audioMuteHandler = () => {
-    this.setState({
-      audioMuted: !this.state.audioMuted,
-    });
-    clickSound.muted = !this.state.audioMuted;
-  };
-
-  audioUnmuteHandler = () => {
     this.setState({
       audioMuted: !this.state.audioMuted,
     });
@@ -141,7 +135,7 @@ class App extends Component {
               🔇 <span class="tooltip">Mute Audio</span>
             </button>
           ) : (
-            <button onClick={this.audioUnmuteHandler} classNAme="unmute">
+            <button onClick={this.audioMuteHandler} className="unmute">
               🔈 <span class="tooltip">Unmute Audio</span>
             </button>
           )}

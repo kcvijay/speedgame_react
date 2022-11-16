@@ -11,8 +11,9 @@
 }
 
 .final-score {
-  background-color: #fff;
-  border: 2px solid #555;
+  background-color: #333;
+  border: 2px solid #fff;
+  color: #fff;
   padding: 2rem;
   max-width: 600px;
   min-width: 350px;
