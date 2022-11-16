@@ -42,7 +42,7 @@ class App extends Component {
     if (this.state.active !== newActive) {
       this.setState({
         active: newActive,
-        pace: this.state.pace * 0.97,
+        pace: this.state.pace * 0.97, // speed increases by 3%
       });
     } else return this.newActiveHandler();
 
@@ -59,11 +59,11 @@ class App extends Component {
   //Actions on clicking correct and incorrect diamonds
   // if correct button clicking, score adds by 1, else lives reduces by 1. On all lives reduced, score popup opens.
   clickHandler = (i) => {
-    clickSound.play();
     if (i === this.state.active) {
       this.setState({
         score: this.state.score + 1,
       });
+      clickSound.play();
     } else {
       this.setState({
         lives: this.state.lives - 1,
@@ -159,8 +159,10 @@ class App extends Component {
             score={this.state.score}
             key={this.state.circles.key}
             greeting={
-              this.state.score <= 15
-                ? `Poor you! You collected only ${this.state.score} diamonds.`
+              this.state.score === 0
+                ? `Too bad. You collected nothing.`
+                : this.state.score === 1
+                ? `Not too bad. You collected one diamond.`
                 : `Oh Congrats! You collected ${this.state.score} diamonds!`
             }
           />
