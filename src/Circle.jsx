@@ -6,6 +6,7 @@ const Circle = (props) => {
     <button
       className={`circle ${props.active ? "active" : ""}`}
       onClick={props.clickHandler}
+      disabled={props.buttonDisabled}
     ></button>
   );
 };

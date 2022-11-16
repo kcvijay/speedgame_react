@@ -3,11 +3,12 @@ import Header from "./Header";
 import Circle from "./Circle";
 import Footer from "./Footer";
 import PopUp from "./PopUp";
+import click from "./Assets/diamond-click.mp3";
 import "./App.css";
 
 // import click from /*files*/
 
-// let clickSound = new Audio(click)
+let clickSound = new Audio(click);
 
 class App extends Component {
   state = {
@@ -18,6 +19,7 @@ class App extends Component {
     pace: 1000,
     showScore: false,
     gameActive: false,
+    buttonDisabled: true,
   };
 
   timer;
@@ -49,8 +51,8 @@ class App extends Component {
 
   //Actions on clicking correct and incorrect diamonds
   clickHandler = (i) => {
-    // clickSound.play();
     // if correct button clicking, score adds by 1, else lives reduces by 1. on all lives reduced, score popup opens.
+    clickSound.play();
     if (i === this.state.active) {
       this.setState({
         score: this.state.score + 1,
@@ -86,7 +88,8 @@ class App extends Component {
   startGameHandler = () => {
     this.newActiveHandler();
     this.setState({
-      gameActive: !this.gameActive,
+      gameActive: !this.state.gameActive,
+      buttonDisabled: !this.state.buttonDisabled,
     });
   };
 
@@ -107,6 +110,7 @@ class App extends Component {
           key={i}
           id={i + 1}
           active={this.state.active === i}
+          buttonDisabled={this.state.buttonDisabled}
         />
       );
     });
@@ -132,7 +136,11 @@ class App extends Component {
             closePopup={this.reloadGame}
             score={this.state.score}
             key={this.state.circles.key}
-            greeting={this.state.score <= 15 ? "Poor you!" : "Oh Congrats!"}
+            greeting={
+              this.state.score <= 15
+                ? `Poor you! You collected only ${this.state.score} diamonds.`
+                : `Oh Congrats! You collected ${this.state.score} diamonds!`
+            }
           />
         )}
       </div>
