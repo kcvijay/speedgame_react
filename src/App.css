@@ -18,3 +18,29 @@
   flex-wrap: wrap;
   margin: 80px auto;
 }
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  background-color: purple;
+  padding: 15px 30px;
+  color: #fff;
+  font-size: 18px;
+  font-family: inherit;
+  border: 1px solid #fff;
+  margin: 0.5rem;
+  border-radius: 3px;
+  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:active,
+.btn:hover {
+  box-shadow: none;
+  opacity: 0.8;
+}

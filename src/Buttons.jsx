@@ -1,17 +1,8 @@
 import React from "react";
 import "./Buttons.css";
 
-const Buttons = (props) => {
-  return (
-    <div className="buttons">
-      <button className="start" onClick={props.startGame}>
-        Start Game
-      </button>
-      <button className="stop" onClick={props.endGame}>
-        Stop Game
-      </button>
-    </div>
-  );
+const Button = (props) => {
+  return <button className="btn">{props.btnName}</button>;
 };
 
-export default Buttons;
+export default Button;

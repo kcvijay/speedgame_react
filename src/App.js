@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import Circle from "./Circle";
-import Buttons from "./Buttons";
 import Footer from "./Footer";
 import PopUp from "./PopUp";
 import "./App.css";
@@ -13,12 +12,12 @@ import "./App.css";
 class App extends Component {
   state = {
     score: 0,
-    lives: 5,
+    lives: 3,
     circles: [1, 2, 3, 4],
     active: undefined,
     pace: 1000,
     showScore: false,
-    gameActive: true,
+    gameActive: false,
   };
 
   timer;
@@ -28,27 +27,7 @@ class App extends Component {
     return random;
   };
 
-  //MArgits code
-
-  // nextCircle = () => {
-  //   let nextActiveNum;
-
-  //   do {
-  //     nextActiveNum = this.makeRandom();
-  //   } while (nextActiveNum === this.state.active);
-
-  //   this.setState({
-  //     active: nextActiveNum,
-  //   });
-
-  //   this.timer = setTimeout(this.nextCircle, 1000);
-  // };
-
-  // startHandler = () => {
-  //   this.nextCircle();
-  // };
-
-  // Creating a unique number
+  // Creating a unique number every moment
   newActiveHandler = () => {
     let newActive = this.makeRandom(0, this.state.circles.length);
     if (this.state.active !== newActive) {
@@ -68,11 +47,7 @@ class App extends Component {
     }
   };
 
-  stopGameHandler = () => {
-    clearTimeout(this.timer);
-    this.popupHandler();
-  };
-
+  //Actions on clicking correct and incorrect diamonds
   clickHandler = (i) => {
     // clickSound.play();
     // if correct button clicking, score adds by 1, else lives reduces by 1. on all lives reduced, score popup opens.
@@ -94,15 +69,34 @@ class App extends Component {
     }
   };
 
+  // Score shows as popup
   popupHandler = () => {
     this.setState({
       showScore: !this.state.showScore,
     });
   };
 
+  // Game reloads
   reloadGame = () => {
     this.popupHandler();
     window.location.reload();
+  };
+
+  // Game starts
+  startGameHandler = () => {
+    this.newActiveHandler();
+    this.setState({
+      gameActive: !this.gameActive,
+    });
+  };
+
+  // Game ends
+  stopGameHandler = () => {
+    clearTimeout(this.timer);
+    this.popupHandler();
+    this.setState({
+      gameActive: !this.state.gameActive,
+    });
   };
 
   render() {
@@ -121,16 +115,24 @@ class App extends Component {
       <div className="App">
         <Header score={this.state.score} lives={this.state.lives} />
         <div className="circles">{circles}</div>
-        <Buttons
-          startGame={this.newActiveHandler}
-          endGame={this.stopGameHandler}
-        />
+        <div className="buttons">
+          {this.state.gameActive ? (
+            <button onClick={this.stopGameHandler} className="btn">
+              Stop Game
+            </button>
+          ) : (
+            <button onClick={this.startGameHandler} className="btn">
+              Start Game
+            </button>
+          )}
+        </div>
         <Footer />
         {this.state.showScore && (
           <PopUp
             closePopup={this.reloadGame}
             score={this.state.score}
             key={this.state.circles.key}
+            greeting={this.state.score <= 15 ? "Poor you!" : "Oh Congrats!"}
           />
         )}
       </div>
@@ -139,3 +141,23 @@ class App extends Component {
 }
 
 export default App;
+
+//Margits code
+
+// nextCircle = () => {
+//   let nextActiveNum;
+
+//   do {
+//     nextActiveNum = this.makeRandom();
+//   } while (nextActiveNum === this.state.active);
+
+//   this.setState({
+//     active: nextActiveNum,
+//   });
+
+//   this.timer = setTimeout(this.nextCircle, 1000);
+// };
+
+// startHandler = () => {
+//   this.nextCircle();
+// };

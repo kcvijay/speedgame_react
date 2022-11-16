@@ -8,7 +8,10 @@ const PopUp = (props) => {
         <p className="close-popup" onClick={props.closePopup}>
           X
         </p>
-        <h3>Your Current Score is {props.score}.</h3>
+        <h3>
+          {props.greeting}
+          <br></br>Your scored {props.score}.
+        </h3>
       </div>
     </div>
   );

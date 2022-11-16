@@ -1,11 +1,4 @@
-.buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.start,
-.stop {
+.btn {
   background-color: purple;
   padding: 15px 30px;
   color: #fff;
@@ -19,10 +12,8 @@
   transition: all 0.2s ease-in-out;
 }
 
-.start:hover,
-.start:active,
-.stop:hover,
-.stop:active {
+.btn:active,
+.btn:hover {
   box-shadow: none;
   opacity: 0.8;
 }
