@@ -132,11 +132,11 @@ class App extends Component {
         <div className="mute-unmute">
           {!this.state.audioMuted ? (
             <button onClick={this.audioMuteHandler} className="mute">
-              🔈<span class="tooltip">Mute Audio</span>
+              🔇 <span class="tooltip">Mute Audio</span>
             </button>
           ) : (
             <button onClick={this.audioMuteHandler} className="unmute">
-              🔇 <span class="tooltip">Unmute Audio</span>
+              🔈 <span class="tooltip">Unmute Audio</span>
             </button>
           )}
         </div>
